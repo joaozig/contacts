@@ -14,9 +14,9 @@
 		<input class="form-control" type="text" ng-model="search" placeholder="O que você está buscando?" />
 		<table class="table" ng-show="contacts.length > 0">
 			<tr>
-				<th><input type="checkbox" ng-model="check" ng-click="selecionarTodos(check, contacts)" /></th>
-				<th><a href="" ng-click="ordernarPor('nome')">Nome</a></th>
-				<th><a href="" ng-click="ordernarPor('telefone')">Telefone</a></th>
+				<th><input type="checkbox" ng-model="check" ng-click="selectAll(check, contacts)" /></th>
+				<th><a href="" ng-click="orderBy('name')">Nome</a></th>
+				<th><a href="" ng-click="orderBy('phone')">Telefone</a></th>
 				<th>Operadora</th>
 				<th>Data</th>
 			</tr>
@@ -49,13 +49,13 @@
 		<div class="alert alert-danger" ng-if="contactForm.phone.$error.required && contactForm.phone.$dirty">Preencha o campo telefone</div>
 		<div class="alert alert-danger" ng-if="contactForm.phone.$error.pattern">Formato de telefone inválido</div>
 		<button class="btn btn-primary btn-block" 
-				ng-click="adicionarContato(contact)" 
+				ng-click="addContact(contact)" 
 				ng-disabled="contactForm.$invalid">
 			Adicionar Contato
 		</button>
 		<button class="btn btn-danger btn-block" 
-				ng-click="apagarContatos(contacts)"
-				ng-show="isContatoSelecionado(contacts)">
+				ng-click="deleteContact(contacts)"
+				ng-show="isContactSelected(contacts)">
 			Apagar Contatos
 		</button>
 	</div>

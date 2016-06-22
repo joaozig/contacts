@@ -18,7 +18,7 @@ angular.module("contacts").controller("listaTelefonicaCtrl", function($scope, $h
 		});
 	}
 
-	$scope.adicionarContato = function(contact) {
+	$scope.addContact = function(contact) {
 		contact.company_id = contact.company.id
 		console.log(contact)
 		$http.post("http://localhost:3000/contacts.json", contact).success(function(data) {
@@ -28,26 +28,26 @@ angular.module("contacts").controller("listaTelefonicaCtrl", function($scope, $h
 		});
 	}
 
-	$scope.apagarContatos = function(contacts) {
+	$scope.deleteContact = function(contacts) {
 		$scope.contacts = contacts.filter(function(contact) {
 			if(!contact.selected) return contact;
 		});
 	}
 
-	$scope.isContatoSelecionado = function(contacts) {
+	$scope.isContactSelected = function(contacts) {
 		return contacts.some(function(contact) {
 			return contact.selected;
 		});
 	}
 
-	$scope.selecionarTodos = function(check, contacts) {
+	$scope.selectAll = function(check, contacts) {
 		$scope.contacts = contacts.filter(function(contact) {
 			contact.selected = check;
 			return contact;
 		});
 	}
 
-	$scope.ordernarPor = function(field) {
+	$scope.orderBy = function(field) {
 		$scope.sortOrder = field;
 		$scope.directionOrder = !$scope.directionOrder;
 	}
