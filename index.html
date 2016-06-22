@@ -1,4 +1,4 @@
-<html ng-app="listaTelefonica">
+<html ng-app="contacts">
 <head>
 	<meta charset="UTF-8">
 	<title>Lista Telefônica</title>
@@ -19,16 +19,13 @@
 				<th><a href="" ng-click="ordernarPor('telefone')">Telefone</a></th>
 				<th>Operadora</th>
 				<th>Data</th>
-				<th></th>
 			</tr>
-			<!-- <tr ng-class="[classe1, classe2]" ng-repeat="contact in contacts"> -->
-			<tr ng-class="{selecionado: contact.selecionado}" ng-repeat="contact in contacts | filter: search | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-				<td><input type="checkbox" ng-model="contact.selecionado" ng-checked="contact.selecionado" /></td>
+			<tr ng-class="{selected: contact.selected}" ng-repeat="contact in contacts | filter: search | orderBy:sortOrder:directionOrder">
+				<td><input type="checkbox" ng-model="contact.selected" ng-checked="contact.selected" /></td>
 				<td>{{contact.name}}</td>
 				<td>{{contact.phone}}</td>
 				<td>{{contact.company.name}}</td>
 				<td>{{contact.created_at | date: 'dd/MM/yyyy HH:mm'}}</td>
-				<td><div style="width: 20px; height: 20px;" ng-style="{'background-color': contact.cor}"></div></td>
 				<!-- <td ng-repeat="(key,value) in contact">
 					{{value}}
 				</td> -->
