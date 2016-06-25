@@ -12,9 +12,6 @@
 .form-control {
 	margin-bottom: 5px;
 }
-.selecionado {
+.selected {
 	background-color: #FFFFCC;
-}
-.negrito {
-	font-weight: bold;
 }

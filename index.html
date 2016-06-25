@@ -39,7 +39,7 @@
 			<select class="form-control" ng-model="contact.company"
 					ng-required="true" 
 					ng-options="company.name + ' ( ' + (company.price | currency) + ' )' for company in companies | orderBy:'name'">
-				<option value="">Selecione a company</option>
+				<option value="">Selecione a operadora</option>
 			</select>
 		</form>
 		<div class="alert alert-danger" ng-if="contactForm.name.$invalid && contactForm.name.$dirty">Erro no campo nome.</div>
